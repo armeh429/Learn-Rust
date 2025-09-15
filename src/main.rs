@@ -1,16 +1,15 @@
-
+use std::ops::Range;
 fn main() {
  
 
-  while_loop_example(); 
+ for_loop_example();
 
 
 }           
 
-fn while_loop_example() {
-    let mut count = 0;
-    while count < 5 {
-        println!("Count is: {}", count);
-        count += 1;
-    }
+fn for_loop_example() {
+    let rang1 :Range<i32> = 1..10;
+    for i in rang1 {
+        println!("The value is: {}", i);
+    }   
 } 
