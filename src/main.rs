@@ -1,16 +1,16 @@
 
-fn main() {
- 
+fn main(){
 
-  while_loop_example(); 
+    let mut counter:i32 = 0;
 
-
-}           
-
-fn while_loop_example() {
-    let mut count = 0;
-    while count < 5 {
-        println!("Count is: {}", count);
-        count += 1;
+    loop {
+        if counter >= 10 {
+            break;
+        } else {
+            println!("Counter: {}", counter);
+            counter += 1;
+        }
+       
     }
-} 
+
+}
