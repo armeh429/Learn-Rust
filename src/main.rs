@@ -1,16 +1,9 @@
 
 fn main(){
+    let mut number:i32 = 5;
 
-    let mut counter:i32 = 0;
-
-    loop {
-        if counter >= 10 {
-            break;
-        } else {
-            println!("Counter: {}", counter);
-            counter += 1;
-        }
-       
+    while number!=0{
+        println!("The number is: {number}");
+        number -= 1;
     }
-
 }
