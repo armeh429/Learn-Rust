@@ -1,39 +1,25 @@
 
 
 fn main() {
-    
-    let mut number: Vec<i32> = Vec::new();
-    println!("hit 0 to exit, or enter a number to add to the list");
-    
-    loop {
-        let mut input = String::new();
-        std::io::stdin().read_line(&mut input).expect("failed to read line");
-        let input: i32 = match input.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue,
-        };
-        
-        if input == 0 {
-            break;
-        }
-        
-        number.push(input);
+    let mut number: [u8; 5] = [1, 2, 3, 4, 5];
+    println!("Array: {:?}", number);
+    println!("First element: {}", number[4]);
+    let mut number2: [u8; 5] = [3; 5];
+    println!("Array2: {:?}", number2);
+    number2[1] = 4;
+    println!("Array2: {:?}", number2);
+    for i in 0..5 {
+        number[i] = (i as u8) * 5;
+    }
+    println!("Array: {:?}", number);
+
+    match number2.get(4) {
+        Some(x) => println!("The tenth element is {}", x),
+        None => panic!("There is no tenth element.")
     }
 
-    let mut even_count: i32 = 0;
-    let mut index_number: usize = 0;
-    while index_number < number.len() {
-        if number[index_number] % 2 == 0 {
-            even_count += 1;
-        }
-        index_number += 1;
-    }
-    let mut summ:i32 = 0;
-    for num in &number {
-        summ += num;
-    }
-    println!("The sum of the numbers is: {}", summ);
-    println!("You entered {} even numbers", even_count);
-    println!("You entered: {:?}", number);
-
+    println!("{:?}",number2.iter()
+    .map(|x| x.to_string())
+    .collect::<Vec<String>>()
+    .join(", "));
 }
